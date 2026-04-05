@@ -23,11 +23,13 @@ app.post("/api/contact", async (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PASS,
-      },
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false, // IMPORTANT
+        auth: {
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_PASS,
+        },
     });
 
     await transporter.sendMail({
