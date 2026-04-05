@@ -7,7 +7,11 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors(
+    {
+        origin: "https://saumyat-portfolio.netlify.app"
+    }
+));
 app.use(express.json());
 
 app.post("/api/contact", async (req, res) => {
